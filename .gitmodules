@@ -1,0 +1,3 @@
+[submodule "flud-app"]
+	path = flud-app
+	url = https://github.com/shawnwilkespro/flud.git
