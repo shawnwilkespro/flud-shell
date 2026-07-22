@@ -24,3 +24,8 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Pipeline artifacts
+flud-app/pipeline/movies.db
+flud-app/pipeline/__pycache__/
+flud-app/pipeline/*.pyc
