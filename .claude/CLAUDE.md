@@ -1,6 +1,6 @@
-# Flud Shell — Project Routing
+# Flud Shell — Container Routing
 
-**This is a standalone Tauri v2 application.**
+**This is a container-level routing file.** The actual git repo lives at `flud-app/` (submodule).
 
 Cascade position:
 ```
@@ -8,7 +8,7 @@ Cascade position:
   └─ Documents/.claude/CLAUDE.md
      └─ GitHub/.claude/CLAUDE.md
         └─ flud-shell/.claude/CLAUDE.md    ← you are here
-           └─ flud-shell/flud-app/.claude/CLAUDE.md  ← project rules (if exists)
+           └─ flud-shell/flud-app/.claude/CLAUDE.md  ← project rules
 ```
 
 ---
@@ -16,13 +16,15 @@ Cascade position:
 ## Structure
 
 ```
-flud-shell/
-└── flud-app/    ← Tauri v2 app (src/ + src-tauri/)
+flud-shell/                 ← superproject (tracks submodule pointer)
+└── flud-app/              ← submodule → github.com/shawnwilkespro/flud.git
+    ├── src/               ← React frontend
+    └── src-tauri/         ← Rust backend
 ```
 
 ## Branch
 
-- `main` — production branch only. Simple single-worktree workflow.
+- `main` — production branch only.
 
 ## Tech Stack
 
@@ -34,7 +36,7 @@ flud-shell/
 ## Rules
 
 - Always `cd` into `flud-app/` before making changes
+- `flud-app/` is a **submodule** — commit there first, then update the superproject pointer
 - `src-tauri/target/` is in `.gitignore` — never commit build artifacts
 - `node_modules/` is ignored — install locally
 - Read `flud-app/.claude/CLAUDE.md` for project-specific rules before any work
-- No nested worktrees — this is a single-repo workflow
